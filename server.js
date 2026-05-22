@@ -11,7 +11,11 @@ res.send(`
 <h1>Hindi Dubbing App 🎬</h1>
 <p>Chinese Video to Hindi Dubbing</p>
 
+<form>
 <input type="file" accept="video/*">
+<br><br>
+<button type="button">Upload</button>
+</form>
 
 </body>
 </html>
