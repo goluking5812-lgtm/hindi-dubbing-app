@@ -9,12 +9,20 @@ res.send(`
 </head>
 <body style="font-family:sans-serif;text-align:center;padding-top:50px;">
 <h1>Hindi Dubbing App 🎬</h1>
+
 <p>Chinese Video to Hindi Dubbing</p>
 
 <form>
 <input type="file" accept="video/*">
+
 <br><br>
-<button type="button">Upload</button>
+
+<button
+type="button"
+onclick="alert('Video Uploaded Successfully ✅')">
+
+Upload
+</button>
 </form>
 
 </body>
