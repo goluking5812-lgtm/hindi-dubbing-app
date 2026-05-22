@@ -11,16 +11,8 @@ res.send(`
 <h1>Hindi Dubbing App 🎬</h1>
 <p>Chinese Video to Hindi Dubbing</p>
 
-<button style="
-padding:15px 25px;
-font-size:18px;
-background:red;
-color:white;
-border:none;
-border-radius:10px;
-">
-Upload Video
-</button>
+<input type="file" accept="video/*">
+
 </body>
 </html>
 `);
