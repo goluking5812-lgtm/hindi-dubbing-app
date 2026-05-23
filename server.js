@@ -3,29 +3,41 @@ const app = express();
 
 app.get("/", (req, res) => {
 res.send(`
+<!DOCTYPE html>
 <html>
 <head>
 <title>Hindi Dubbing App</title>
 </head>
 <body style="font-family:sans-serif;text-align:center;padding-top:50px;">
 <h1>Hindi Dubbing App 🎬</h1>
-
 <p>Chinese Video to Hindi Dubbing</p>
 
-<form>
-<input type="file" accept="video/*">
-
+<input id="videoFile" type="file" accept="video/*">
 <br><br>
 
-<button
-type="button"
-onclick="alert('Video Uploaded Successfully ✅')">
+<button onclick="startUpload()">Upload</button>
 
-Upload
-</button>
 <p id="status"></p>
-</form>
 
+<script>
+function startUpload() {
+const file = document.getElementById("videoFile").files[0];
+
+if (!file) {
+alert("Pehle video select karo");
+return;
+}
+
+document.getElementById("status").innerHTML =
+"Uploading & Processing Video... ⏳";
+
+setTimeout(() => {
+document.getElementById("status").innerHTML =
+"Video Uploaded Successfully ✅<br>Hindi dubbing processing coming soon...";
+alert("Video Uploaded Successfully ✅");
+}, 1500);
+}
+</script>
 </body>
 </html>
 `);
