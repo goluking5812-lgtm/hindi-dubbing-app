@@ -23,6 +23,7 @@ onclick="alert('Video Uploaded Successfully ✅')">
 
 Upload
 </button>
+<p id="status"></p>
 </form>
 
 </body>
