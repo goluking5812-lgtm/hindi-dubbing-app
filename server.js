@@ -5,7 +5,16 @@ const path = require("path");
 
 const app = express();
 
-const upload = multer({ dest: "uploads/" });
+app.use("/uploads", express.static("uploads"));
+
+const storage = multer.diskStorage({
+destination: "uploads/",
+filename: (req, file, cb) => {
+cb(null, Date.now() + "-" + file.originalname);
+}
+});
+
+const upload = multer({ storage: storage });
 
 app.get("/", (req, res) => {
 res.send(`
@@ -26,10 +35,15 @@ res.send(`
 });
 
 app.post("/upload", upload.single("video"), (req, res) => {
+const fileUrl = "/uploads/" + req.file.filename;
+
 res.send(`
 <h2>Video Uploaded Successfully ✅</h2>
 <p>File name: ${req.file.originalname}</p>
 <p>Hindi dubbing processing coming soon...</p>
+
+<a href="${fileUrl}" download>Download Uploaded Video</a>
+<br><br>
 <a href="/">Upload another video</a>
 `);
 });
